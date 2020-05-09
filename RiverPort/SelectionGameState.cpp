@@ -25,11 +25,11 @@ void SelectionGameState::input()
 			if (event.mouseButton.button == sf::Mouse::Left && firstLevel.rect.getGlobalBounds().contains(sf::Vector2f(mousePos)))
 			{
 				game->changeState(new ActionGameState(game, 1));
-			}
+			}/*
 			if (event.mouseButton.button == sf::Mouse::Left && secondLevel.rect.getGlobalBounds().contains(sf::Vector2f(mousePos)))
 			{
 				game->changeState(new ActionGameState(game, 2));
-			}
+			}*/
 		}
 	}
 
@@ -61,7 +61,7 @@ void SelectionGameState::draw()
 
 	//---Draw levels' buttons 
 	game->window.draw(firstLevel);
-	game->window.draw(secondLevel);
+	//game->window.draw(secondLevel);
 
 	game->window.display();
 }
