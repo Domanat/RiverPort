@@ -11,7 +11,7 @@ EndGameState::EndGameState(Game* g)
 	background.setTexture(backTexture);
 	background.setPosition(0, 0);
 
-	font.loadFromFile("fonts/MenuFont.ttf");
+	font.loadFromFile("fonts/MainFont.ttf");
 	tryAgain.setFont(font);
 	tryAgain.setCharacterSize(100);
 	tryAgain.setString("Try Again");
