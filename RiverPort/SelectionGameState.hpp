@@ -13,12 +13,12 @@ public:
 	Level(const std::string& str, int x, int y)
 	{
 		rect.setSize(sf::Vector2f(100, 100));
-		rect.setFillColor(sf::Color::Green);
+		rect.setFillColor(sf::Color(255, 153, 0));
 		rect.setOutlineColor(sf::Color::Blue);
 		rect.setOutlineThickness(0.f);
 		rect.setPosition(x, y);
 
-		font.loadFromFile("fonts/MenuFont.ttf");
+		font.loadFromFile("fonts/MainFont.ttf");
 		text.setFont(font);
 		text.setString(str);
 		text.setCharacterSize(50);
