@@ -8,7 +8,7 @@
 MenuGameState::MenuGameState(Game* g)
 {
 	game = g;
-	font.loadFromFile("fonts/MenuFont.ttf");
+	font.loadFromFile("fonts/MainFont.ttf");
 	startString.setFont(font);
 	startString.setString("Start Game");
 	startString.setCharacterSize(100);
@@ -21,7 +21,7 @@ MenuGameState::MenuGameState(Game* g)
 	levelString.setString("Choose level");
 	levelString.setCharacterSize(100);
 	levelString.setFillColor(sf::Color(255, 204, 102));
-	levelString.setPosition(445, 150);
+	levelString.setPosition(400, 150);
 	levelString.setOutlineColor(sf::Color::Black);
 	levelString.setOutlineThickness(0.f);
 
