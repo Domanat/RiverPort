@@ -1,5 +1,6 @@
 #include "ActionGameState.hpp"
 #include <iostream>
+#include <string>
 #include "EndGameState.hpp"
 
 ActionGameState::ActionGameState(Game* g, int numberOfMap) :
@@ -45,23 +46,23 @@ ActionGameState::ActionGameState(Game* g, int numberOfMap) :
 
 	}
 	
-	//generalFont.loadFromFile("fonts/MenuFont.ttf");
-	//score.setFont(generalFont);
-	//score.setCharacterSize(50);
-	//score.setFillColor(sf::Color::Black);
-	//score.setOutlineColor(sf::Color::Green);
-	//score.setOutlineThickness(1.f);
-	//score.setPosition(0, 0);
-	//score.setString("Score: "); //put at 350, 0
+	generalFont.loadFromFile("fonts/MainFont.ttf");
+	score.setFont(generalFont);
+	score.setCharacterSize(50);
+	score.setFillColor(sf::Color::Black);
+	score.setOutlineColor(sf::Color::Green);
+	score.setOutlineThickness(1.f);
+	score.setPosition(0, 0);
+	std::string scoreStr = "Score: " + std::to_string(player.score);
+	score.setString(scoreStr); //put at 350, 0
 
-	//lifes.setFont(generalFont);
-	//lifes.setCharacterSize(50);
-	//lifes.setFillColor(sf::Color::Black);
-	//lifes.setOutlineColor(sf::Color::Green);
-	//lifes.setOutlineThickness(1.f);
-	//lifes.setPosition(60, 0);
-	//lifes.setString("Lifes: "); //put at 350, 60
-
+	lifes.setFont(generalFont);
+	lifes.setCharacterSize(50);
+	lifes.setFillColor(sf::Color::Black);
+	lifes.setPosition(0, 60);
+	std::string lifesStr = "String: " + std::to_string(player.lifes);
+	lifes.setString(lifesStr); //put at 350, 60
+	
 	view.setSize(sf::Vector2f(windowWidth, windowHeight));
 }
 
@@ -114,6 +115,10 @@ void ActionGameState::update(sf::Time dt)
 			
 	//set background image correct
 	background.setPosition(view.getCenter().x - windowWidth / 2, view.getCenter().y - windowHeight / 2);
+	lifes.setPosition(view.getCenter().x - windowWidth / 2, view.getCenter().y - windowHeight / 2);
+	lifes.setString("Lifes: " + std::to_string(player.lifes));
+	score.setPosition(view.getCenter().x - windowWidth / 2, view.getCenter().y - windowHeight / 2 + 50);
+	score.setString("Score: " + std::to_string(player.score));
 }
 
 void ActionGameState::playerObjectCollision()
@@ -161,12 +166,12 @@ void ActionGameState::objectsCollision(int direction)
 		{
 			for (int j = 0; j < enemies.size(); j++)
 			{
-				
+
 				if (enemies[j]->getRect().intersects(player.bullets[i]->getRect()))
 				{
 					auto delBullet = player.bullets.begin() + i;
 					auto delEnemy = enemies.begin() + j;
-					
+
 					enemies.erase(delEnemy);
 					player.bullets.erase(delBullet);
 					break;
@@ -217,7 +222,7 @@ void ActionGameState::draw()
 	game->window.setView(view);
 	game->window.clear();
 	game->window.draw(background);
-	
+
 	//---draw map----
 	for (int i = 0; i < mapHeight; i++)
 	{
@@ -247,6 +252,8 @@ void ActionGameState::draw()
 	}
 
 	//draw labels
+	game->window.draw(lifes);
+	game->window.draw(score);
 
 	game->window.display();
 }
