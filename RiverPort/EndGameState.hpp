@@ -7,8 +7,6 @@
 class EndGameState : public GameState
 {
 private:
-	sf::Music music;
-
 	sf::View view;
 	sf::Font font;
 	sf::Text tryAgain;	
