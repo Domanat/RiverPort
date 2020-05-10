@@ -10,7 +10,7 @@ Player::Player(const std::string& filename, sf::RenderWindow& win, int currentMa
 	isShooting = true;
 	lifes = 3;
 
-	rect = sf::FloatRect(9 * cellSize, 8 * cellSize, humanWidth, humanWidth);
+	rect = sf::FloatRect(1 * cellSize, 1 * cellSize, humanWidth, humanWidth);
 
 	if (currentMap == 1)
 	{
@@ -21,7 +21,8 @@ Player::Player(const std::string& filename, sf::RenderWindow& win, int currentMa
 	}
 	else if (currentMap == 2)
 	{
-		
+		for (int i = 0; i < mapHeight; i++)
+			map[i] = map2[i];
 	}
 
 	score = 0;

@@ -6,21 +6,21 @@ Enemy::Enemy(const std::string& filename, int numberOfMap, int x, int y, float l
 	texture.loadFromFile(filename);
 	sprite.setTexture(texture);
 
+	//--choose proper map for the level---
 	if (numberOfMap == 1)
 	{
 		for (int i = 0; i < mapHeight; i++)
-		{
 			map[i] = map1[i];
-		}
-
-		leftBorder = lBorder;
-		rightBorder = rBorder;
 	}
 	else if (numberOfMap == 2)
 	{
-
+		for (int i = 0; i < mapHeight; i++)
+			map[i] = map2[i];
 	}
 
+
+	leftBorder = lBorder;
+	rightBorder = rBorder;
 	dtSum = 0;
 	frameNumber = 0;
 	shootingInterval = shootInterval;
