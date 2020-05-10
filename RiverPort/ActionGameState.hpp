@@ -33,6 +33,7 @@ public:
 
 	ActionGameState(Game* game, int numberOfMap);
 
+	void checkPlayerState();
 	void objectsCollision(int direction);
 	void playerObjectCollision();
 	void bulletBorderCollision(Bullet* bullet);
