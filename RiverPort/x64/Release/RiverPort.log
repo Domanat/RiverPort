@@ -1,15 +1,9 @@
-﻿  EndGameState.cpp
-C:\Users\maxim\source\repos\RiverPort\RiverPort\SelectionGameState.hpp(19,23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\maxim\source\repos\RiverPort\RiverPort\SelectionGameState.hpp(19,20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  MenuGameState.cpp
-C:\Users\maxim\source\repos\RiverPort\RiverPort\SelectionGameState.hpp(19,23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\maxim\source\repos\RiverPort\RiverPort\SelectionGameState.hpp(19,20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  SelectionGameState.cpp
+﻿  VictoryGameState.cpp
 C:\Users\maxim\source\repos\RiverPort\RiverPort\SelectionGameState.hpp(19,23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 C:\Users\maxim\source\repos\RiverPort\RiverPort\SelectionGameState.hpp(19,20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Создание кода
-  1 of 384 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  3 of 412 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   RiverPort.vcxproj -> C:\Users\maxim\source\repos\RiverPort\x64\Release\RiverPort.exe
