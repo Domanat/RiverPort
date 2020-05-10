@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "EndGameState.hpp"
+#include "VictoryGameState.hpp"
 
 ActionGameState::ActionGameState(Game* g, int numberOfMap) :
 	player("images/Player.png", g->window, numberOfMap)
@@ -22,13 +23,7 @@ ActionGameState::ActionGameState(Game* g, int numberOfMap) :
 			std::cout << "ERROR: Can't load background texture " << std::endl;
 		}
 		background.setTexture(backTexture);
-
-		if (!coinTexture.loadFromFile("images/Bottle.png"))
-		{
-			std::cout << "ERROR: Can't load coin texture" << std::endl;
-		}
-		coin.setTexture(coinTexture);
-
+		
 		//brick on the level
 		if (!drawBlockTexture.loadFromFile("images/sand.png"))
 		{
@@ -43,8 +38,28 @@ ActionGameState::ActionGameState(Game* g, int numberOfMap) :
 	}
 	else if (numberOfMap == 2)
 	{
+		for (int i = 0; i < mapHeight; i++)
+			map[i] = map2[i];
 
+		if (!backTexture.loadFromFile("images/GameBackground.png"))
+			std::cout << "ERROR: Can't load background texture" << std::endl;
+		background.setTexture(backTexture);
+
+		if (!drawBlockTexture.loadFromFile("images/plank.png"))
+			std::cout << "ERROR: can't load drawBlockTexture" << std::endl;
+		drawBlock.setTexture(drawBlockTexture);
+
+		enemies.push_back(new Enemy("images/Enemy.png", 2, 1 * cellSize, 10 * cellSize, 1 * cellSize, 18 * cellSize, 0.1));
+		enemies.push_back(new Enemy("images/Enemy.png", 2, 19 * cellSize, 11 * cellSize, 19 * cellSize, 37 * cellSize, 0.2));
+		enemies.push_back(new Enemy("images/Enemy.png", 2, 2 * cellSize, 19 * cellSize, 3 * cellSize, 45 * cellSize, 0.2));
 	}
+
+	if (!coinTexture.loadFromFile("images/Bottle.png"))
+	{
+		std::cout << "ERROR: Can't load coin texture" << std::endl;
+	}
+	coin.setTexture(coinTexture);
+
 	
 	generalFont.loadFromFile("fonts/MainFont.ttf");
 	score.setFont(generalFont);
@@ -81,11 +96,20 @@ void ActionGameState::input()
 
 	player.input();
 }
-		
-void ActionGameState::update(sf::Time dt)
+	
+void ActionGameState::checkPlayerState()
 {
+	if (enemies.size() == 0 && player.score > 10)
+		game->changeState(new VictoryGameState(game));
+
 	if (player.lifes == 0)
 		game->changeState(new EndGameState(game));
+
+}
+
+void ActionGameState::update(sf::Time dt)
+{
+	checkPlayerState();
 
 	player.update(dt);
 	
@@ -238,7 +262,7 @@ void ActionGameState::draw()
 				coin.setPosition(j * cellSize, i * cellSize);
 				game->window.draw(coin);
 			}
-			else
+			else if (map[i][j] == ' ')
 				continue;
 		}
 	}
