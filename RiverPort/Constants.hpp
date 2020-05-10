@@ -25,7 +25,7 @@ const sf::String map1[mapHeight] =
 {
 	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
 	"B                                               B",
-	"B         C                                     B",
+	"BBBB      C                                     B",
 	"B  CC     BBBBB               CC                B",
 	"B BBBBB                            BBBBBBB     CB",
 	"B                       BBBB          B        BB",
@@ -33,7 +33,7 @@ const sf::String map1[mapHeight] =
 	"BB                                    B         B",
 	"B       BBBBBBBBB                           BBBBB",
 	"BBB                   BB                        B",
-	"B                     BB      C                 B",
+	"B       CCCC          BB      C                 B",
 	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB   BBBB   BBBB",
 	"B                               BBC             B",
 	"B  C              CC            BBBBB       BBBBB",
@@ -46,4 +46,29 @@ const sf::String map1[mapHeight] =
 	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
 };
 
+const sf::String map2[mapHeight] =
+{
+
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+	"B                           C C          C C C  B",
+	"BBBBB        C  C          BBBBB        BBBBBB  B",
+	"B  CC      BBBBBBB            CC                B",
+	"B BBBBB                   C                    CB",
+	"B                    BBBBBBB         CC        BB",
+	"B                                 BBBBBBBB      B",
+	"BB       C C C C                            C   B",
+	"BC      BBBBBBBBB       CCC                 BBBBB",
+	"BBB                   BBBBBBBB                  B",
+	"B     C    C                             C  C   B",
+	"BBBBBBBBBBBBBBBBBBB                   BBBBBBBBBBB",
+	"B                    C C C     C C C            B",
+	"B                  BBBBBBBBBBBBBBBBBBB          B",
+	"B   C C                             C        BBBB",
+	"B  BBBBBBB                         BBBBB        B",
+	"B                     CC                     CC B",
+	"B                BBBBBBBBB             BBBBBBBBBB",
+	"B       BBBBB                                   B",
+	"B          CC         C            CC           B",
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+};
 #endif
